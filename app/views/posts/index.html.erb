@@ -1,14 +1,10 @@
-<p class="lead">
-  All Posts
-  <hr>
-</p>
+<%= render 'shared/content_title', title: 'All Posts' %>
 
 <% @posts.each do |post| %>
   <div class="row">
     <div class="span8 well">
-      <% post.categories.each do |category| %>
-        <span class="badge"><%= category.name %></span>
-      <% end %>
+      <%= render post.categories %>
+
       <p><%= link_to post.title, post.full_url(post.url), target: '_blank' %></p>
       <p><%= post.description %></p>
       <p><span class="quiet">posted by</span> <%= post.creator.username %>
