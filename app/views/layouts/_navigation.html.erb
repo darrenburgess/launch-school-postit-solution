@@ -12,5 +12,19 @@
 </div>
 
 <div class="nav_item">
-  <%= link_to 'New Category', new_category_path, class: 'btn btn-success btn-small' %>
+  <div class="dropdown">
+    <button class="btn btn-small dropdown-toggle" type="button" data-toggle="dropdown">Categories <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, category_path(category) %></li>
+      <% end %>
+      <li class="divider"></li>
+      <li>
+        <%= link_to(new_category_path) do %>
+          <i class="icon-plus"></i>
+          New Category
+        <% end %>
+      </li>
+    </ul>
+  </div>
 </div>
