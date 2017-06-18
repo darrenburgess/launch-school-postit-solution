@@ -17,10 +17,9 @@
 
 <h5>Comments:</h5>
 <div class="row">
-  <div class="well span8">
-    <% @post.comments.each do |comment| %>
-      <em><%= comment.body %></em>
-      <br>
+    <% @post.comments.reject(&:new_record?).each do |comment| %>
+      <div class="well span8">
+        <em><%= comment.body %></em>
+      </div>
     <% end %>
-  </div>
 </div>
