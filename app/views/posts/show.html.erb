@@ -12,7 +12,6 @@
 </br>
 
 <%= render 'shared/errors', obj: @comment %>
-
 <%= render 'comments/form' %>
 
 <h5>Comments:</h5>
@@ -22,7 +21,7 @@
         <em><%= comment.body %></em>
         <br>
         <span class="quiet">by</span>
-        <%= link_to comment.creator.username, user_path %>
+        <a><%= comment.creator.username %></a>
         <small>at <%= comment.created_at %></small>
       </div>
     <% end %>
