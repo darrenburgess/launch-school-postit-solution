@@ -20,6 +20,10 @@
     <% @post.comments.reject(&:new_record?).each do |comment| %>
       <div class="well span8">
         <em><%= comment.body %></em>
+        <br>
+        <span class="quiet">by</span>
+        <%= link_to comment.creator.username, user_path %>
+        <small>at <%= comment.created_at %></small>
       </div>
     <% end %>
 </div>
