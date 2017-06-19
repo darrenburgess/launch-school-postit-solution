@@ -22,7 +22,7 @@
         <br>
         <span class="quiet">by</span>
         <a><%= comment.author.username %></a>
-        <small>at <%= comment.created_at %></small>
+        <small>at <%= friendly_date(comment.created_at) %></small>
       </div>
     <% end %>
 </div>

@@ -6,4 +6,8 @@ module ApplicationHelper
       "http://#{url}"
     end
   end
+
+  def friendly_date(timestamp)
+    timestamp.to_formatted_s(:long)
+  end
 end

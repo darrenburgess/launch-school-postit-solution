@@ -9,5 +9,3 @@ class Post < ActiveRecord::Base
   validates :description, presence: true
   validates :creator, presence: true
 end
-
-
