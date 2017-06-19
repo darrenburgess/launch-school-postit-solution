@@ -8,10 +8,6 @@ class Post < ActiveRecord::Base
   validates :url, presence: true, uniqueness: true
   validates :description, presence: true
   validates :creator, presence: true
-
-  def full_url(url)
-    "http://#{url}"
-  end
 end
 
 

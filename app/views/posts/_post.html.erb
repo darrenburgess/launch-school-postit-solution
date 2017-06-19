@@ -2,7 +2,7 @@
   <div class="span8 well">
     <%= render post.categories %>
 
-    <p><%= link_to post.title, post.full_url(post.url), targe: "_blank" %></p>
+    <p><%= link_to post.title, full_url(post.url), targe: "_blank" %></p>
     <p><%= post.description %></p>
     <p><span class="quiet">posted by </span> <%= post.creator.username %>
     <small> at <%= post.created_at %></small>
