@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
-    @comment.creator = User.first
+    @comment.author = User.first
     @categories = @post.categories
 
     if @comment.save
