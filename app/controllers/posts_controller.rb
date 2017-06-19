@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @comment = @post.comments.new 
   end
 
   def new
@@ -42,7 +43,6 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
-    @comment = @post.comments.new 
   end
 
   def set_categories
