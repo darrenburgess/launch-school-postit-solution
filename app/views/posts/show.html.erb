@@ -1,4 +1,6 @@
-<p class="pull-right">[<%= link_to 'Edit this post', edit_post_path(@post) %>]</p>
+<% if logged_in? %>
+  <p class="pull-right">[<%= link_to 'Edit this post', edit_post_path(@post) %>]</p>
+<% end %>
 
 <p>
   <%= render @post.categories %>
@@ -12,7 +14,10 @@
 </br>
 
 <%= render 'shared/errors', obj: @comment %>
-<%= render 'comments/form' %>
+
+<% if logged_in? %>
+  <%= render 'comments/form' %>
+<% end %>
 
 <h5>Comments:</h5>
 <div class="row">

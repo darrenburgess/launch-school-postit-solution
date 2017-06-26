@@ -1,0 +1,28 @@
+<div class="nav_item">
+  <div class="dropdown">
+    <button class="btn btn-small dropdown-toggle" type="button" data-toggle="dropdown">
+      <%= current_user.username %> 
+      &nbsp;<span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <li>
+        <%= link_to "" do %>
+          <i class="icon-pencil"></i>
+          edit profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "" do %>
+          <i class="icon-user"></i>
+          view profile
+        <% end %>
+      </li>
+      <li>
+        <%= link_to logout_path do %>
+          <i class="icon-circle-arrow-left"></i>
+          logout
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

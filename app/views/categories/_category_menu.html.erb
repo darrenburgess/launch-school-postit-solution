@@ -1,0 +1,22 @@
+<div class="nav_item">
+  <div class="dropdown">
+    <button class="btn btn-small dropdown-toggle" type="button" data-toggle="dropdown">
+      Categories 
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+      <% Category.all.each do |category| %>
+        <li><%= link_to category.name, category_path(category) %></li>
+      <% end %>
+      <% if logged_in? %>
+        <li class="divider"></li>
+        <li>
+          <%= link_to(new_category_path) do %>
+            <i class="icon-plus"></i>
+            New Category
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
