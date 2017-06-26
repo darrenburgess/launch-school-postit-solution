@@ -9,9 +9,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:notice] = "Your account was created"
+      session[:user_id] = @user.id
+      flash[:notice] = "Welcome, #{@user.username}"
       redirect_to root_path
-      # TO DO: redirect to login page
     else
       render :new
     end
@@ -30,6 +30,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit!
+    params.require(:user).permit(:username, :password)
   end
 end
