@@ -1,0 +1,25 @@
+<%= render 'shared/content_title', title: "#{current_user.username}'s Profile" %>
+
+<div class="well">
+  <dl class="dl-horizontal">
+    <dt>Username:</dt>
+    <dd>current_user.username</dd>
+  </dl>
+
+</div>
+
+<h5><%= current_user.username %>'s Activity'</h5>
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="<%= user_path(current_user[:id]) %>">Posts</a>
+  </li>
+  <li class>
+    <a href="<%= user_path(current_user[:id]) %>">Comments</a>
+  </li>
+</ul>
+
+<% current_user.posts.each do |post| %>
+  <%= render "posts/post", post: post %>
+<% end %>
+
+<%= render "comments/comment", comments: current_user.comments %> 
