@@ -1,8 +1,9 @@
 <h5>Comments:</h5>
+<% show_post ||= nil %>
 <div class="row">
     <% comments.reject(&:new_record?).each do |comment| %>
       <div class="well span8">
-        <em><%= comment.body %></em>
+        <em><%= comment.body %>on <%= link_to comment.post.title, post_path(comment.post) if show_post %></em>
         <br>
         <span class="quiet">by</span>
         <a><%= comment.author.username %></a>

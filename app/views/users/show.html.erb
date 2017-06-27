@@ -3,23 +3,34 @@
 <div class="well">
   <dl class="dl-horizontal">
     <dt>Username:</dt>
-    <dd>current_user.username</dd>
+    <dd><%= @user.username %></dd>
   </dl>
-
+  <dl class="dl-horizontal">
+    <dt>First name:</dt>
+    <dd><%= @user.first_name %></dd>
+  </dl>
+  <dl class="dl-horizontal">
+    <dt>Last name:</dt>
+    <dd><%= @user.last_name %></dd>
+  </dl>
 </div>
 
-<h5><%= current_user.username %>'s Activity'</h5>
+<h5><%= @user.username %>'s Activity'</h5>
 <ul class="nav nav-tabs">
-  <li class="active">
-    <a href="<%= user_path(current_user[:id]) %>">Posts</a>
+  <li class="<%= 'active' if params[:tab].nil? %>">
+    <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %>
   </li>
-  <li class>
-    <a href="<%= user_path(current_user[:id]) %>">Comments</a>
+  <li class="<%= 'active' if params[:tab] == 'comments' %>">
+    <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: 'comments') %>
   </li>
 </ul>
 
-<% current_user.posts.each do |post| %>
-  <%= render "posts/post", post: post %>
+<% if params[:tab].nil? %>
+  <% @user.posts.each do |post| %>
+    <%= render "posts/post", post: post %>
+  <% end %>
 <% end %>
 
-<%= render "comments/comment", comments: current_user.comments %> 
+<% if params[:tab] == 'comments' %>
+  <%= render "comments/comment", comments: @user.comments, show_post: true %> 
+<% end %>
