@@ -14,7 +14,9 @@ PostitTemplate::Application.routes.draw do
  
     resources :comments, only: [:create]
   end
-  
+
+  post 'comment/:id/vote', to: 'comments#vote', as: :vote_comment
+
   resources :categories
   resources :users, only: [:show, :create, :edit, :update]
 end

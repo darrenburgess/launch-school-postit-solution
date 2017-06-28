@@ -3,7 +3,7 @@
   <div class="well">
     <div class="control-group">
       <%= label_tag :username %>
-      <%= text_field_tag :username, params[:username] || '' %>
+      <%= text_field_tag :username, params[:username] || '', autofocus: true %>
     </div>
     <div class="control-group">
       <%= label_tag :password %>
