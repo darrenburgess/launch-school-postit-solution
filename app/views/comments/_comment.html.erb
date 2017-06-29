@@ -1,7 +1,8 @@
 <h5>Comments:</h5>
 <% show_post ||= nil %>
-<div class="row">
-  <% comments.reject(&:new_record?).each do |comment| %>
+
+<% comments.reject(&:new_record?).each do |comment| %>
+  <div class="row">
     <%= render 'shared/vote', obj: comment %>
 
     <div class="well span8">
@@ -11,5 +12,5 @@
       <a><%= comment.author.username %></a>
       <small>at <%= friendly_date(comment.created_at) %></small>
     </div>
-  <% end %>
-</div>
+  </div>
+<% end %>
