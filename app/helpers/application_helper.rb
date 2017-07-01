@@ -19,4 +19,8 @@ module ApplicationHelper
       vote_comment_path(obj, vote: vote)
     end
   end
+
+  def vote_count_element_id(obj)
+    "#{obj.class.name}-vote-#{obj.id}"
+  end
 end
