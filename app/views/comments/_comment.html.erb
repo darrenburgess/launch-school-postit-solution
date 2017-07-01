@@ -3,7 +3,7 @@
 
 <% comments.reject(&:new_record?).each do |comment| %>
   <div class="row">
-    <%= render 'shared/vote', obj: comment %>
+    <%= render 'votes/vote', obj: comment %>
 
     <div class="well span8">
       <em><%= comment.body %> on <%= link_to comment.post.title, post_path(comment.post) if show_post %></em>

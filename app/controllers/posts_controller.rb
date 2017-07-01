@@ -54,7 +54,7 @@ class PostsController < ApplicationController
         redirect_to :back
       end
 
-      format.js {render 'vote/vote'}
+      format.js {render 'votes/vote'}
     end
   end
 
