@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
   before_action :require_user, except: [:index]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
+
+  # why is this here?
   before_action :set_categories
 
   def index
@@ -46,7 +48,7 @@ class CategoriesController < ApplicationController
   private
 
   def set_category
-    @category = Category.find(params[:id])
+    @category = Category.find_by(slug: params[:id])
   end
 
   def set_categories

@@ -4,5 +4,5 @@ class Category < ActiveRecord::Base
 
   validates :name, presence: true
 
-  #include Sluggable
+  include Sluggable
 end
