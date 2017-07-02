@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:notice] = "Your profile was updated"
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.slug)
     else
       render :edit
     end
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(slug: params[:id])
   end
 
   def require_same_user

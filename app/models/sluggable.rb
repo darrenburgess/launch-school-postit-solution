@@ -6,7 +6,13 @@ module Sluggable
   end
 
   def create_slug
-    self.slug = self.title.gsub(" ", "-")
+    if self.class.name == "Post"
+      self.slug = self.title.gsub(" ", "-")
+    elsif self.class.name == "User"
+      self.slug = self.username.gsub(" ", "-")
+    elsif self.class.name == "Category"
+      self.slug = self.name.gsub(" ", "-")
+    end
   end
 
   def to_param
