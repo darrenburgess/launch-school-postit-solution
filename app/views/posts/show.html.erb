@@ -19,4 +19,4 @@
   <%= render 'comments/form' %>
 <% end %>
 
-<%= render "comments/comment", comments: @post.comments %>
+<%= render "comments/comment", comments: @post.reload.comments %>

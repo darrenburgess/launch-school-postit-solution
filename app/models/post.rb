@@ -10,4 +10,5 @@ class Post < ActiveRecord::Base
   validates :creator, presence: true
 
   include Voteable
+  include Sluggable
 end
