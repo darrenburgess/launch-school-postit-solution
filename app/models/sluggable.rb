@@ -1,4 +1,4 @@
-module Sluggable
+module OldSluggable
   extend ActiveSupport::Concern
 
   included do
