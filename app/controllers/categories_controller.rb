@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   before_action :require_user, except: [:index]
   before_action :set_category, only: [:show, :edit, :update, :destroy]
   before_action :require_user, only: [:index, :edit]
+  before_action :require_admin, only: [:index, :create, :edit, :destroy]
 
   # why is this here?
   before_action :set_categories, only: [:index]
