@@ -7,8 +7,12 @@ module ApplicationHelper
     end
   end
 
-  def friendly_date(timestamp)
-    timestamp.to_formatted_s(:long)
+  def friendly_date(dt)
+    if logged_in? && !current_user.timezone.blank?
+      dt = dt.in_time_zone(current_user.timezone)
+    end
+
+    dt.strftime("%m/%d/%Y %l:%M%P %Z")
   end
 
   def vote_path(obj, vote)

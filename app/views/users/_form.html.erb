@@ -19,6 +19,10 @@
       <%= f.text_field :last_name %>
     </div>
     <div class="control-group">
+      <%= f.label :timezone %>
+      <%= f.time_zone_select :timezone, ActiveSupport::TimeZone.us_zones, default: Time.zone.name %>
+    </div>
+    <div class="control-group">
       <%= f.submit (@user.new_record? ? "Register" : "Update Profile"), class: 'btn btn-primary' %>
     </div>
   </div>
