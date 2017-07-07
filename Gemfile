@@ -10,6 +10,8 @@ gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'voteable_dtb', '= 0.0.0'
 gem 'sluggable-dtb', '= 0.0.2'
+gem 'active_model_serializers', '= 0.10.0'
+gem 'thread_safe', '= 0.3.6'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
